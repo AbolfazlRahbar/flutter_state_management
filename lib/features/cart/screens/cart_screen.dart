@@ -4,12 +4,11 @@ import 'package:flutter_state_management/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
-  // ignore: use_key_in_widget_constructors
-  const CartScreen();
+  const CartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final cartItems = Provider.of<ProductProvider>(context).selectedProduct;
+    final cartItems = context.read<ProductProvider>().selectedProduct;
 
     return Scaffold(
       appBar: AppBar(title: Text('Cart')),

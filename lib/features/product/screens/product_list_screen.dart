@@ -4,6 +4,11 @@ import 'package:flutter_state_management/features/product/widgets/product_tile.d
 import 'package:flutter_state_management/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
+/*
+use:
+provider.of(), Consumer()
+context.watch(), context.read()
+ */
 class ProductListScreen extends StatelessWidget {
   const ProductListScreen({super.key});
 
@@ -23,18 +28,15 @@ class ProductListScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Consumer<ProductProvider>(
-        builder: (context, productProvider, _) {
-          return ListView.builder(
-            itemCount: productProvider.products.length,
-            itemBuilder: (context, index) {
-              final product = productProvider.products[index];
-              return ProductTile(
-                product: product,
-                onChanged: (value) {
-                  productProvider.toggleProductSelection(product);
-                },
-              );
+      body: ListView.builder(
+        itemCount: context.watch<ProductProvider>().products.length,
+        itemBuilder: (context, index) {
+          final product = context.watch<ProductProvider>().products[index];
+          return ProductTile(
+            product: product,
+            onChanged: (value) {
+              // function call, onTap
+              context.read<ProductProvider>().toggleProductSelection(product);
             },
           );
         },
