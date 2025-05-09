@@ -9,6 +9,13 @@ import 'package:provider/provider.dart';
  2. create provider for each state
  3. add providers created to multiprovider
  4. use provider...
+
+ 5.way1 -> Consumer(), Provider.of() onTap, function call need.
+ 5.way2-> context.watch(), context.real()
+
+ small and medium size-> easy way -> way2
+ bigger projects -> way1
+ hybrid apporach -> combine way1 and way2
  */
 
 void main() {

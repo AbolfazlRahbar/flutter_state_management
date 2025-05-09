@@ -4,7 +4,8 @@ import 'package:flutter_state_management/providers/product_provider.dart';
 import 'package:provider/provider.dart';
 
 class CartScreen extends StatelessWidget {
-  CartScreen();
+  // ignore: use_key_in_widget_constructors
+  const CartScreen();
 
   @override
   Widget build(BuildContext context) {
